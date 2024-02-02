@@ -566,7 +566,6 @@ transform: translateY(0);
     /* 187.5% */
     letter-spacing: 0.03em;
 }
-
 .backdrop {
     position: fixed;
     width: 100%;
@@ -574,16 +573,13 @@ transform: translateY(0);
     top: 0;
     left: 0;
     background: rgba(0, 0, 0, 0.20);
-    opacity: 0; 
-    visibility: hidden;
-    pointer-events: none;
     transition: opacity var(--timing-function), visibility var(--timing-function);
   
 }
 .is-hidden{
-   opacity: 1;
-   visibility: visible;
-   pointer-events: auto; 
+   opacity: 0;
+   visibility: hidden;
+   pointer-events: none; 
 }
 .modal {
     position: absolute;
@@ -592,9 +588,14 @@ transform: translateY(0);
     transform: translate(-50%, -50%) scale(1);
     width: 528px;
 min-height: 581px;
+padding: 40px;
 border-radius: 4px;
 background: #FFF;
+transition: transform var(--timing-function);
 box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.20), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+}
+.backdrop.is-hidden .modal {
+    transform: translate(-50%, -50%) scaleY(0);
 }
 .modal-close-btn {
     position: absolute;
